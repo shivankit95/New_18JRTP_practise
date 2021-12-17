@@ -1,0 +1,41 @@
+package com.shiva.Entity;
+
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Entity
+@Table(name = "CONTACTDTLS")
+@Data
+public class Contact {
+	
+    @Id
+    @GeneratedValue
+    @Column(name = "CONTACTID")
+	private Integer contactid;
+    
+    @Column(name = "CONTACTNAME")
+	private String Contactname;
+    
+    @Column(name ="CONTACTEMAIL")
+	private  String contactemail;
+    
+    @Column(name = "CONTACTNUMBER")
+	private double contactnumber;
+    
+    @Column(name = "CONTACTSWITCH")
+	private  String switch_sw;
+    
+    @Column(name = "CREATEDATE")
+	private LocalDate createdate;
+    
+    @Column(name = "UPDATEDDATE")
+	private LocalDate updateddate;
+
+}

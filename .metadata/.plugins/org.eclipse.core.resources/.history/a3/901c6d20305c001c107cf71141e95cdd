@@ -1,0 +1,15 @@
+package com.shiva.bindings;
+
+import java.time.LocalDate;
+
+public class ContactForm {
+
+	private Integer contactid;
+	private String Contactname;
+	private  String contactemail;
+	private  Integer contactnumber;
+	private  String switch_sw;
+	private   LocalDate createdate;
+	private LocalDate updateddate;
+
+}

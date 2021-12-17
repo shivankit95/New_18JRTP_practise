@@ -1,0 +1,18 @@
+package com.shiva.Entity;
+
+import java.time.LocalDate;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Contact {
+	
+	private Integer contactid;
+	private String Contactname;
+	private  String contactemail;
+	private  Integer contactnumber;
+	private  String switch_sw;
+	private   LocalDate createdate;
+	private LocalDate updateddate;
+
+}

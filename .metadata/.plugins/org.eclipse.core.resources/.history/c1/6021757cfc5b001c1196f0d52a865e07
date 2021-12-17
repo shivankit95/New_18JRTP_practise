@@ -1,0 +1,5 @@
+package com.shiva.Entity;
+
+public class Contact {
+
+}

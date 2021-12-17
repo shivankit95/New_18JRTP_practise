@@ -1,0 +1,11 @@
+package com.shiva.Entity;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Contact {
+	
+	private Integer contactid;
+	privae St
+
+}

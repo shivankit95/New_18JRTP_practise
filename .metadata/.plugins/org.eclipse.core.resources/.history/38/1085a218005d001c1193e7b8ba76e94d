@@ -1,0 +1,44 @@
+package com.contactDemo.entity;
+
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+@Entity
+@Table(name="CONTACT_ALL")
+public class Contact {
+	 @Id
+	    @GeneratedValue
+	    @Column(name = "CONTACTID")
+		private Integer contactid;
+	    
+	    @Column(name = "CONTACTNAME")
+		private String Contactname;
+	    
+	    @Column(name ="CONTACTEMAIL")
+		private  String contactemail;
+	    
+	    @Column(name = "CONTACTNUMBER")
+		private long contactnumber;
+	    
+	    @Column(name = "CONTACTSWITCH")
+		private  String switch_sw;
+	    
+	    @Column(name = "CREATEDATE")
+	   @CreationTimestamp
+		private LocalDate createdate;
+	    
+	    @Column(name = "UPDATEDDATE")
+	    @UpdateTimestamp
+		private LocalDate updateddate;
+
+	}
+
+}

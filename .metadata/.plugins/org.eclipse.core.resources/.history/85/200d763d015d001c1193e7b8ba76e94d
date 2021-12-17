@@ -1,0 +1,11 @@
+package com.contactDemo.Services;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.contactDemo.Bindings.Contact_Form;
+@Service
+public class Contact_Serviceimpl implements Contact_Service {
+	
+}

@@ -1,0 +1,12 @@
+package com.shiva.services;
+
+import org.springframework.stereotype.Service;
+
+import com.shiva.bindings.ContactForm;
+
+@Service
+public interface ContactService {
+	
+	public String saveContact(ContactForm);
+
+}

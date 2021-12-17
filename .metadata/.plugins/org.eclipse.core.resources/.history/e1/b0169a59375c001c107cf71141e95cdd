@@ -1,0 +1,73 @@
+package com.shiva.services;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.shiva.Entity.Contact;
+import com.shiva.bindings.ContactForm;
+import com.shiva.repository.ContactRepository;
+
+import ch.qos.logback.core.joran.util.beans.BeanUtil;
+
+@Service
+public class ContactSerivceimpl implements ContactService {
+
+	@Autowired
+	private ContactRepository contactrepo;
+
+	@Override
+	public String saveContact(ContactForm form) {
+		Contact entity = new Contact();
+		BeanUtils.copyProperties(form, entity);
+		entity = contactrepo.save(entity);
+		if (entity.getContactid() != null) {
+			return "save CONTACT SUCCESSFULLY";
+		}
+		return "FIALED TO SAVE";
+	}
+
+	@Override
+	public List<ContactForm> viewContact() {
+	
+	List<Contact> datalist = new ArrayList<>();
+	
+     List<Contact> findall = contactrepo.findAll();
+     
+     for(Contact entity : findall) {
+    	 ContactForm form = new ContactForm();
+    	 BeanUtils.copyProperties(entity, form);
+    	 datalist.add(form);
+     
+    	 
+     }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+
+		return null;
+	}
+
+	@Override
+	public ContactForm editContact(Integer contactid) {
+
+		return null;
+	}
+
+	@Override
+	public List<ContactForm> deleteContact(Integer contactid) {
+
+		return null;
+	}
+
+}

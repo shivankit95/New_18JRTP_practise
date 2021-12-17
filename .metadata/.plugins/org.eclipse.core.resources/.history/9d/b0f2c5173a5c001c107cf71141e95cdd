@@ -1,0 +1,69 @@
+package com.shiva.services;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.shiva.Entity.Contact;
+import com.shiva.bindings.ContactForm;
+import com.shiva.repository.ContactRepository;
+
+import ch.qos.logback.core.joran.util.beans.BeanUtil;
+
+@Service
+public class ContactSerivceimpl implements ContactService {
+
+	@Autowired
+	private ContactRepository contactrepo;
+
+	@Override
+	public String saveContact(ContactForm form) {
+		Contact entity = new Contact();
+		BeanUtils.copyProperties(form, entity);
+		entity = contactrepo.save(entity);
+		if (entity.getContactid() != null) {
+			return "save CONTACT SUCCESSFULLY";
+		}
+		return "FIALED TO SAVE";
+	}
+
+	@Override
+	public List<ContactForm> viewContact() {
+
+		List<ContactForm> datalist = new ArrayList<>();
+
+		List<Contact> findall = contactrepo.findAll();
+
+		for (Contact entity : findall) {
+			ContactForm form = new ContactForm();
+			BeanUtils.copyProperties(entity, form);
+			datalist.add(form);
+		}
+		return datalist;
+
+	}
+
+	@Override
+	public ContactForm editContact(Integer contactid) {
+   Optional<Contact> findid = contactrepo.findById(contactid);
+     if(findid.isPresent()) {
+   Contact entity = findid.get();
+   ContactForm form = new ContactForm();
+   BeanUtils.copyProperties(entity, form);
+         return form;
+     }
+		return null;
+	}
+
+	@Override
+	public List<ContactForm> deleteContact(Integer contactid) {
+         contactrepo.deleteById(contactid);
+         
+		return viewContact();
+	}
+
+}

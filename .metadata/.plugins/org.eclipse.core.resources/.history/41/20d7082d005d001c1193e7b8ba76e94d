@@ -1,0 +1,15 @@
+package com.contactDemo.Services;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public interface Contact_Service {
+	
+	public String savecontact();
+	public List<Contact_form> viewContacts();
+	public Contact_Form editContac(Integer contactid);
+	public List<Contact_Form> deleteContact(Integer contactid);
+
+}
